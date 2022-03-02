@@ -62,7 +62,7 @@ def data_gen(V, slen, batch, nbatches, device):
         #src = Variable(data, requires_grad=False)
         #tgt = Variable(data, requires_grad=False)
 
-        data = torch.from_numpy(np.random.randint(2, V, size=(batch, slen)))
+        data = torch.from_numpy(np.random.randint(2, V, size=(batch, slen))).to(torch.int64)
         # 约定输出为输入除去序列第一个元素，即向后平移一位进行输出，同时输出数据要在第一个时间步添加一个起始符
         # 因此，加入输入数据为  [3, 4, 2, 6, 4, 5]
         # ground truth输出为 [1, 4, 2, 6, 4, 5]
